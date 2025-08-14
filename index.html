@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Product - Order Page</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 900px;
+        }
+        /* Custom styles for colors that don't have a direct Tailwind class */
+        .bg-maroon-custom { background-color: #800000; }
+        .bg-brown-custom { background-color: #a52a2a; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-8">
+
+    <div class="container mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-10">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">The Awesome Product</h1>
+            <p class="text-lg text-gray-600">The last one you'll ever need.</p>
+        </header>
+
+        <main class="grid md:grid-cols-2 gap-8">
+            <!-- Product Image Section -->
+            <div class="flex items-center justify-center bg-gray-200 rounded-lg overflow-hidden p-4">
+                <!-- Use a placeholder image or replace with your product image URL -->
+                <img src="https://placehold.co/400x400/1f2937/d1d5db?text=Awesome+Product" alt="Awesome Product" class="rounded-md w-full h-auto object-cover">
+            </div>
+
+            <!-- Product Details and Form Section -->
+            <div class="flex flex-col justify-center">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Product Details</h2>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    This amazing product is designed to simplify your life. Made with premium materials and a commitment to quality, it's built to last.
+                    Choose from a variety of options below to find the perfect fit for you.
+                </p>
+
+                <!-- Order Form -->
+                <form id="order-form" class="space-y-4">
+
+                    <!-- Product Variations (Colors) -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Select a Color</label>
+                        <!-- Color swatches are now circles with names below -->
+                        <div class="flex flex-row gap-4 overflow-x-auto pb-2">
+                            <!-- Black -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="Black" class="sr-only peer" checked>
+                                <div class="w-8 h-8 rounded-full bg-black border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">Black</span>
+                            </label>
+                            <!-- Maroon -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="Maroon" class="sr-only peer">
+                                <div class="w-8 h-8 rounded-full bg-maroon-custom border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">Maroon</span>
+                            </label>
+                            <!-- White -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="White" class="sr-only peer">
+                                <div class="w-8 h-8 rounded-full bg-white border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">White</span>
+                            </label>
+                            <!-- Skin -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="Skin" class="sr-only peer">
+                                <div class="w-8 h-8 rounded-full bg-[#f5e1da] border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">Skin</span>
+                            </label>
+                            <!-- Pink -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="Pink" class="sr-only peer">
+                                <div class="w-8 h-8 rounded-full bg-pink-500 border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">Pink</span>
+                            </label>
+                            <!-- Brown -->
+                            <label class="flex flex-col items-center cursor-pointer">
+                                <input type="radio" name="Product Variation" value="Brown" class="sr-only peer">
+                                <div class="w-8 h-8 rounded-full bg-brown-custom border-2 border-transparent peer-checked:border-black transition duration-200 ease-in-out hover:border-gray-500"></div>
+                                <span class="text-xs mt-1">Brown</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Customer Information -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="Name" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition duration-150 ease-in-out p-2">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="Email" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition duration-150 ease-in-out p-2">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition duration-150 ease-in-out p-2">
+                    </div>
+
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Shipping Address</label>
+                        <textarea id="address" name="Address" rows="3" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition duration-150 ease-in-out p-2"></textarea>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Select Payment Method</label>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-center">
+                                <input id="payment-cod" name="Payment Method" type="radio" value="Cash on Delivery" checked class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="payment-cod" class="ml-3 block text-sm font-medium text-gray-700">
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="payment-bank" name="Payment Method" type="radio" value="Bank Transfer" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="payment-bank" class="ml-3 block text-sm font-medium text-gray-700">
+                                    Bank Transfer
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer Details (initially hidden) -->
+                    <div id="bank-transfer-details" class="bg-gray-50 p-4 rounded-md border border-gray-200 hidden">
+                        <p class="text-sm text-gray-600 mb-2">Please transfer the amount to the following account and we will process your order after payment confirmation:</p>
+                        <ul class="text-sm font-medium text-gray-800 space-y-1">
+                            <li><strong>Bank Name:</strong> Awesome Bank</li>
+                            <li><strong>Account Name:</strong> The Awesome Product Co.</li>
+                            <li><strong>Account Number:</strong> 1234-5678-90123-456</li>
+                            <li><strong>IBAN:</strong> PKXX-AWES-OME0-0123-4567-8901</li>
+                        </ul>
+                    </div>
+
+                    <!-- Submit Button & Feedback -->
+                    <div>
+                        <button type="submit" id="submit-btn" class="w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-105">
+                            Submit Order
+                        </button>
+                    </div>
+
+                    <div id="form-message" class="text-center font-medium mt-4"></div>
+                </form>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // *** STEP 2: Replace this URL with your deployed Google Apps Script URL ***
+        const GAS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+        const form = document.getElementById('order-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+        
+        // New elements for payment method functionality
+        const paymentRadioButtons = document.querySelectorAll('input[name="Payment Method"]');
+        const bankDetailsDiv = document.getElementById('bank-transfer-details');
+
+        // Event listener to show/hide bank details
+        paymentRadioButtons.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.value === 'Bank Transfer') {
+                    bankDetailsDiv.classList.remove('hidden');
+                } else {
+                    bankDetailsDiv.classList.add('hidden');
+                }
+            });
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the default form submission
+
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                // Fetch to the Google Apps Script URL
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.result === 'success') {
+                        formMessage.textContent = 'Order submitted successfully! We will contact you shortly.';
+                        formMessage.classList.add('text-green-600');
+                        form.reset(); // Clear the form
+                        bankDetailsDiv.classList.add('hidden'); // Also hide bank details on reset
+                    } else {
+                        throw new Error(result.message || 'An unknown error occurred.');
+                    }
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                formMessage.textContent = 'Submission failed. Please try again later.';
+                formMessage.classList.add('text-red-600');
+            } finally {
+                submitBtn.textContent = 'Submit Order';
+                submitBtn.disabled = false;
+                formMessage.classList.remove('text-green-600', 'text-red-600');
+            }
+        });
+    </script>
+</body>
+</html>
