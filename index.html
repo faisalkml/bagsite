@@ -252,7 +252,7 @@
                         <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md shadow-sm">
                         <div>
                             <p class="font-semibold text-gray-800">${item.name}</p>
-                            <p class="text-gray-500 text-sm">${item.quantity} x ${item.price.toLocaleString()} PKR</p>
+                            <p class="text-gray-500 text-sm">${item.quantity} x ${item.price.toLocaleString()} PKR}</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-2">
@@ -363,6 +363,10 @@
         window.onload = () => {
             renderProducts();
             updateCart();
+            // --- FIX ADDED HERE ---
+            // This line ensures the loading overlay is explicitly hidden on page load,
+            // preventing the issue you described.
+            loadingOverlay.style.display = 'none';
         };
 
     </script>
