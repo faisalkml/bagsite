@@ -124,7 +124,7 @@
 
     <script>
         // Set your Google Apps Script URL here after you have deployed it.
-        const googleAppsScriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+        const googleAppsScriptURL = "https://script.google.com/macros/s/AKfycbx8a3DDbxRiyqRWNBoD6R3QR6JwWYb22S-0HzOInrbX74CGLOtfPEVFB_icda5wMyo7/exec";
 
         // --- Product Data ---
         const products = [
@@ -317,6 +317,13 @@
                 return;
             }
 
+            // --- FIX ADDED HERE ---
+            // Check if the URL is set. If not, show an error and stop.
+            if (googleAppsScriptURL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" || googleAppsScriptURL === "") {
+                showMessage('error', 'URL Not Set', 'Please deploy the Google Apps Script and add the URL to the code.');
+                return;
+            }
+
             loadingOverlay.style.display = 'flex'; // Show loading indicator
 
             // Collect form data
@@ -332,7 +339,7 @@
 
             try {
                 // Send data to Google Apps Script
-                const response = await fetch(https://script.google.com/macros/s/AKfycbx8a3DDbxRiyqRWNBoD6R3QR6JwWYb22S-0HzOInrbX74CGLOtfPEVFB_icda5wMyo7/exec, {
+                const response = await fetch(googleAppsScriptURL, {
                     method: 'POST',
                     mode: 'no-cors', // Important for Apps Script web app
                     cache: 'no-cache',
@@ -353,6 +360,7 @@
 
             } catch (error) {
                 console.error('Error submitting order:', error);
+                // This catch block will not be triggered by network errors with 'no-cors' mode.
                 showMessage('error', 'Submission Failed', 'There was an error submitting your order. Please try again.');
             } finally {
                 loadingOverlay.style.display = 'none'; // Hide loading indicator
@@ -363,7 +371,6 @@
         window.onload = () => {
             renderProducts();
             updateCart();
-            // --- FIX ADDED HERE ---
             // This line ensures the loading overlay is explicitly hidden on page load,
             // preventing the issue you described.
             loadingOverlay.style.display = 'none';
